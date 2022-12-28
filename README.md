@@ -10,7 +10,7 @@ by adding `k256` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:k256, "~> 0.0.5"}
+    {:k256, "~> 0.0.6"}
   ]
 end
 ```
