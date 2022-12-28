@@ -30,7 +30,7 @@ Wait for the [action](https://github.com/RooSoft/k256/actions) to finish, and ma
 Create a checksum file
 
 ```bash
-mix rustler_precompiled.download K256.Native --all
+mix rustler_precompiled.download K256.Native --all --print
 ```
 
 Publish to hex
