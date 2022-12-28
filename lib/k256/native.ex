@@ -16,7 +16,7 @@ defmodule K256.Native do
   use RustlerPrecompiled,
     otp_app: :k256,
     crate: "k256_rs",
-    base_url: "https://github.com/RooSoft/k256/releases/download/v#{version}",
+    base_url: "https://github.com/RooSoft/k256/releases/download/#{version}",
     force_build: System.get_env("RUSTLER_PRECOMPILATION_EXAMPLE_BUILD") in ["1", "true"],
     version: version
 
