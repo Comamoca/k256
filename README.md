@@ -9,7 +9,7 @@ Wrapper around the [k256](https://crates.io/crates/k256) rust library
 ```elixir
 def deps do
   [
-    {:k256, "~> 0.0.6"}
+    {:k256, "~> 0.0.7"}
   ]
 end
 ```
