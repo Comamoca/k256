@@ -1,6 +1,6 @@
 defmodule K256.Schnorr do
-  @opaque signing_key :: binary()
-  @opaque verifying_key :: binary()
+  @type signing_key :: binary()
+  @type verifying_key :: binary()
   @type signature :: binary()
 
   @type errors ::
