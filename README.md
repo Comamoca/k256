@@ -9,7 +9,7 @@ Wrapper around the [k256](https://crates.io/crates/k256) rust library
 ```elixir
 def deps do
   [
-    {:k256, "~> 0.0.7"}
+    {:k256, "~> 0.0.8"}
   ]
 end
 ```
@@ -18,10 +18,10 @@ end
 
 Before pushing a new version, make sure to add a git tag.
 
-Here, an example of pushing the 0.0.7 version, which should match @version in mix.exs.
+Here, an example of pushing the 0.0.8 version, which should match @version in mix.exs.
 
 ```bash
-git tag -a 0.0.7 -m "a commit comment"
+git tag -a 0.0.8 -m "a commit comment"
 git push origin main --tags
 ```
 
