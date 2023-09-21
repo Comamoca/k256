@@ -58,7 +58,7 @@ defmodule K256.MixProject do
   defp deps do
     [
       {:ex_doc, "~> 0.29.1", only: :dev, runtime: false},
-      {:rustler, "~> 0.26.0"},
+      {:rustler, "~> 0.29.1"},
       {:rustler_precompiled, "~> 0.5"},
       {:nimble_csv, "~> 1.1", only: [:dev, :test]},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
