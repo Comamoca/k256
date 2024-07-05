@@ -16,10 +16,11 @@ defmodule K256.Native do
   use RustlerPrecompiled,
     otp_app: :k256,
     crate: "k256_rs",
-    base_url: "https://github.com/RooSoft/k256/releases/download/#{version}",
+    base_url: "https://github.com/comamoca/k256/releases/download/#{version}",
     force_build: System.get_env("RUSTLER_PRECOMPILATION_EXAMPLE_BUILD") in ["1", "true"],
     version: version
 
+  # TODO: Add type info.
   def schnorr_generate_random_signing_key(), do: error()
   def schnorr_create_signature(_, _), do: error()
   def schnorr_verifying_key_from_signing_key(_), do: error()
