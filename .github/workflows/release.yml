@@ -27,11 +27,11 @@ jobs:
           key: ${{ runner.os }}-pkg-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
           restore-keys: |
             ${{ runner.os }}-pkg-
-      run: |
-        mix deps.get
-        mix rustler_precompiled.download K256.Native --all --print
-        mix hex.publish --yes
-      env:
+      - run: |
+          mix deps.get
+          mix rustler_precompiled.download K256.Native --all --print
+          mix hex.publish --yes
+      - env:
         HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
 
   build_release:
