@@ -38,7 +38,7 @@ jobs:
   build_release:
     defaults:
       run:
-      working-directory: "./native/k256_rs"
+        working-directory: "./native/k256_rs"
     name: NIF ${{ matrix.nif }} - ${{ matrix.job.target }} (${{ matrix.job.os }})
     runs-on: ${{ matrix.job.os }}
     strategy:
