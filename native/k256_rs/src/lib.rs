@@ -111,7 +111,7 @@ mod schnorr {
     pub fn create_signature(key: &[u8], contents: &[u8]) -> Result<Vec<u8>, Error> {
         let signing_key =
             SigningKey::from_bytes(&key).map_err(|_| Error::SigningKeyDecodingFailed)?;
-        let signature = signing_key.sign(&contents).as_bytes().to_vec();
+        let signature = signing_key.sign(&contents).to_bytes().to_vec();
 
         Ok(signature)
     }
@@ -152,7 +152,7 @@ mod schnorr {
         let signature =
             Signature::try_from(signature).map_err(|_| Error::SignatureDecodingFailed)?;
 
-        match verifying_key.verify_prehashed(message_digest, &signature) {
+        match verifying_key.verify(message_digest, &signature) {
             Ok(_) => Ok(()),
             Err(_) => Err(Error::InvalidSignature),
         }
