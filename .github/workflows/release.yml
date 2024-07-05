@@ -10,14 +10,10 @@ on:
     tags:
       - '*'
 
-defaults:
-  run:
-    # Sets the working dir for "run" scripts.
-    # Note that this won't change the directory for actions (tasks with "uses").
-    working-directory: "./native/k256_rs"
 
 jobs:
   publish:
+    needs: build_release
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -31,12 +27,17 @@ jobs:
           key: ${{ runner.os }}-pkg-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
           restore-keys: |
             ${{ runner.os }}-pkg-
-      - run: mix deps.get
-      - run: mix hex.publish --yes
+      - run: |
+        mix deps.get
+        mix rustler_precompiled.download K256.Native --all --print
+        mix hex.publish --yes
         env:
           HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
 
   build_release:
+    defaults:
+      run:
+      working-directory: "./native/k256_rs"
     name: NIF ${{ matrix.nif }} - ${{ matrix.job.target }} (${{ matrix.job.os }})
     runs-on: ${{ matrix.job.os }}
     strategy:
