@@ -19,23 +19,22 @@ defaults:
 jobs:
   publish:
     runs-on: ubuntu-latest
-        steps:
-        - uses: actions/checkout@v4
-        - uses: erlef/setup-elixir@v1
-          with:
-            otp-version: '27.0.0'
-            elixir-version: '1.17.1'
-# 1.17.1-otp-27
-        - uses: actions/cache@v4
-          with:
-            path: deps
-            key: ${{ runner.os }}-pkg-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
-            restore-keys: |
-              ${{ runner.os }}-pkg-
-        - run: mix deps.get
-        - run: mix hex.publish --yes
-          env:
-            HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
+      steps:
+      - uses: actions/checkout@v4
+      - uses: erlef/setup-elixir@v1
+        with:
+          otp-version: '27.0.0'
+          elixir-version: '1.17.1'
+      - uses: actions/cache@v4
+        with:
+          path: deps
+          key: ${{ runner.os }}-pkg-${{ hashFiles(format('{0}{1}', github.workspace, '/mix.lock')) }}
+          restore-keys: |
+            ${{ runner.os }}-pkg-
+      - run: mix deps.get
+      - run: mix hex.publish --yes
+        env:
+          HEX_API_KEY: ${{ secrets.HEX_API_KEY }}
 
   build_release:
     name: NIF ${{ matrix.nif }} - ${{ matrix.job.target }} (${{ matrix.job.os }})
