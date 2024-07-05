@@ -8,7 +8,7 @@ defmodule K256.MixProject do
       app: :k256,
       version: @version,
       description:
-        "An wrapper around the rust elliptic-curve's k256 crate, can do Schnorr Signatures",
+        "[Fork from RooSoft/k256] An wrapper around the rust elliptic-curve's k256 crate, can do Schnorr Signatures",
       elixir: "~> 1.14",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
@@ -59,7 +59,7 @@ defmodule K256.MixProject do
     [
       {:ex_doc, "~> 0.29.1", only: :dev, runtime: false},
       {:rustler, "~> 0.29.1"},
-      {:rustler_precompiled, "~> 0.5"},
+      {:rustler_precompiled, "~> 0.7.2"},
       {:nimble_csv, "~> 1.1", only: [:dev, :test]},
       {:dialyxir, "~> 1.0", only: [:dev], runtime: false},
       {:mix_test_watch, "~> 1.0", only: [:dev, :test], runtime: false}
