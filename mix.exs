@@ -15,8 +15,8 @@ defmodule K256.MixProject do
 
       # Docs
       name: "k256",
-      source_url: "https://github.com/roosoft/k256",
-      homepage_url: "https://github.com/roosoft/k256",
+      source_url: "https://github.com/comamoca/k256",
+      homepage_url: "https://github.com/comamoca/k256",
       docs: docs(),
       package: package()
     ]
@@ -33,7 +33,7 @@ defmodule K256.MixProject do
     [
       maintainers: ["Marc Lacoursière"],
       licenses: ["UNLICENCE"],
-      links: %{"GitHub" => "https://github.com/roosoft/k256"},
+      links: %{"GitHub" => "https://github.com/comamoca/k256"},
       files: [
         "lib",
         "native/k256_rs/.cargo",
@@ -50,7 +50,7 @@ defmodule K256.MixProject do
       # The main page in the docs
       main: "K256",
       source_ref: @version,
-      source_url: "https://github.com/roosoft/k256"
+      source_url: "https://github.com/comamoca/k256"
     ]
   end
 
